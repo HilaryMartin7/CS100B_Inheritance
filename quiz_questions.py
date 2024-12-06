@@ -9,18 +9,6 @@ class Question ():
         self.maxvalue = 10 
         self.solution = 0
     
-    def grade_level(self,grade):
-        if grade > 9: 
-            maxvalue == int(1000)
-        elif grade > 6:
-            maxvalue == int(100)
-        elif grade > 3:
-            self.maxvalue == int(50)
-        else:
-            maxvalue == int(10)
-        return maxvalue
-       
-
 
     def generateproblem(self, grade):
         """
@@ -30,21 +18,16 @@ class Question ():
             none, returns solution to be used to check answer against input            
         """
 
-        if grade > 9: 
-            self.maxvalue == int(1000)
-        elif grade > 6:
-            self.maxvalue == int(100)
-        elif grade > 3:
-            self.maxvalue == int(50)
-        else:
-            self.maxvalue == int(10)
    
         operators = [('+', operator.add), ('-', operator.sub), ('*', operator.mul), ('/', operator.truediv)]
-        a= int(random.randrange(1,self.maxvalue))
-        b = int(random.randrange(1,self.maxvalue))
+        a= int(random.randrange(1,grade*10))   #problem is function of grade level so max value is based on student grade
+        b = int(random.randrange(1,grade*10))
         op, equation = random.choice(operators)
         print (f'{a} {op} {b} =')
         self.solution = equation(a,b)
+        f = open('Test_results.txt', 'a')
+        f.write(f'Question:\n {a} {op} {b} = {self.solution}')
+        f.close()
         # Equations.append(equationdetail)
         return self.solution
     

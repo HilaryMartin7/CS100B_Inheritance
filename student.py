@@ -7,18 +7,6 @@ class Student:
         self.birthdate = birthdate
         self.grade = grade
 
-    def grade_level(self):
-        if self.grade > 9: 
-            self.maxvalue == 1000
-        elif self.grade > 6:
-            self.maxvalue == 100
-        elif self.grade > 3:
-            self.maxvalue == 50
-        else:
-            self.maxvalue == 10
-        return self.maxvalue
-
-
     def study(self):
         print(self.name + ' is studying')
 
